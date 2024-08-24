@@ -28,6 +28,12 @@ def set_info():
 
     return jsonify({'message': 'Text stored successfully'}), 200
 
+@app.route('/set_info', methods=['GET'])
+def set_info_get():
+    paramstext = request.args.get("text")
+    log_action(f'{paramstext}')
+    return paramstext
+
 
 @app.route('/get_info', methods=['GET'])
 def get_info():
